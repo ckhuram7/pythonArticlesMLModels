@@ -1,0 +1,9 @@
+A great example of this is the 2008 power station shutdown in Italy that led to the failure of a communications network, causing another power station to go down and "triggering an electrical blackout affecting much of Italy."
+
+"When we think about a single network in isolation, we are missing so much of the context," says Raissa D’Souza, a physicist and engineer at the University of California, Davis. "We are going to make predictions that don’t match real systems."
+
+Like their single-network counterparts, networks of networks show up everywhere. By waking up in the morning, going to work and using your brain, you are connecting networks. Same when you introduce a family member to a friend or send a message on Facebook that you also broadcast via Twitter. In fact, anytime you access the Internet, which is supported by the power grid, which gets its instructions via communications networks, you are relying on interdependent systems. And if your 401(k) lost value during the recent recession, you’re feeling the effects of such systems gone awry.
+
+Findings so far suggest that networks of networks pose risks of catastrophic danger that can exceed the risks in isolated systems. A seemingly benign disruption can generate rippling negative effects. Those effects can cost millions of dollars, or even billions, when stock markets crash, half of India loses power or an Icelandic volcano spews ash into the sky, shutting down air travel and overwhelming hotels and rental car companies. In other cases, failure within a network of networks can mean the difference between a minor disease outbreak or a pandemic, a foiled terrorist attack or one that kills thousands of people.
+
+Understanding these life-and-death scenarios means abandoning some well-established ideas developed from single-network studies. Scientists now know that networks of networks don’t always behave the way single networks do.
