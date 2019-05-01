@@ -43,3 +43,107 @@
 2019-04-30 22:43:27,860, Testing, INFO, Parsed text has a total of 345 Words
 2019-04-30 22:43:27,864, Testing, DEBUG, Length of stopwords 179, Length of Punctuation 32
 2019-04-30 22:43:27,866, Testing, INFO, Preprocessed List 345 records, Postprocess List 197 records 
+2019-05-01 15:13:31,024, Testing, INFO, Received Text Input with the following length in Characters: 1920
+2019-05-01 15:13:31,026, Testing, INFO, BreakUpText Input Values: senOrWords: words
+2019-05-01 15:13:31,048, Testing, INFO, Parsed text has a total of 345 Words
+2019-05-01 15:13:31,055, Testing, DEBUG, Length of stopwords 179, Length of Punctuation 32
+2019-05-01 15:13:31,057, Testing, INFO, Preprocessed List 345 records, Postprocess List 187 records 
+2019-05-01 15:22:09,537, Testing, INFO, Received Text Input with the following length in Characters: 1920
+2019-05-01 15:22:09,538, Testing, INFO, BreakUpText Input Values: senOrWords: words
+2019-05-01 15:22:09,566, Testing, INFO, Parsed text has a total of 345 Words
+2019-05-01 15:22:09,571, Testing, DEBUG, Length of stopwords 179, Length of Punctuation 32
+2019-05-01 15:22:09,575, Testing, INFO, Preprocessed List 345 records, Postprocess List 187 records 
+2019-05-01 15:24:02,018, Testing, INFO, Received Text Input with the following length in Characters: 1920
+2019-05-01 15:24:02,019, Testing, INFO, BreakUpText Input Values: senOrWords: words
+2019-05-01 15:24:02,035, Testing, INFO, Parsed text has a total of 345 Words
+2019-05-01 15:24:02,038, Testing, DEBUG, Length of stopwords 179, Length of Punctuation 32
+2019-05-01 15:24:37,625, Testing, INFO, Received Text Input with the following length in Characters: 1920
+2019-05-01 15:24:37,627, Testing, INFO, BreakUpText Input Values: senOrWords: words
+2019-05-01 15:24:37,652, Testing, INFO, Parsed text has a total of 345 Words
+2019-05-01 15:24:37,656, Testing, DEBUG, Length of stopwords 179, Length of Punctuation 32
+2019-05-01 15:24:37,659, Testing, INFO, Preprocessed List 345 records, Postprocess List 181 records 
+2019-05-01 16:04:45,816, Testing, INFO, Received Text Input with the following length in Characters: 1920
+2019-05-01 16:04:45,817, Testing, INFO, BreakUpText Input Values: senOrWords: words
+2019-05-01 16:04:45,840, Testing, INFO, Parsed text has a total of 345 Words
+2019-05-01 16:04:45,846, Testing, DEBUG, Length of stopwords 179, Length of Punctuation 32
+2019-05-01 16:04:45,853, Testing, INFO, Preprocessed List 345 records, Postprocess List 181 records 
+2019-05-01 16:05:46,462, Testing, INFO, Received Text Input with the following length in Characters: 1920
+2019-05-01 16:05:46,463, Testing, INFO, BreakUpText Input Values: senOrWords: words
+2019-05-01 16:05:46,480, Testing, INFO, Parsed text has a total of 345 Words
+2019-05-01 16:05:46,484, Testing, DEBUG, Length of stopwords 179, Length of Punctuation 32
+2019-05-01 16:05:46,487, Testing, INFO, Preprocessed List 345 records, Postprocess List 181 records 
+2019-05-01 16:08:17,252, Testing, INFO, Received Text Input with the following length in Characters: 1920
+2019-05-01 16:08:17,252, Testing, INFO, BreakUpText Input Values: senOrWords: words
+2019-05-01 16:08:17,270, Testing, INFO, Parsed text has a total of 345 Words
+2019-05-01 16:08:17,280, Testing, DEBUG, Length of stopwords 179, Length of Punctuation 32
+2019-05-01 16:08:17,284, Testing, INFO, Preprocessed List 345 records, Postprocess List 181 records 
+2019-05-01 16:10:04,931, Testing, INFO, Received Text Input with the following length in Characters: 1920
+2019-05-01 16:10:04,931, Testing, INFO, BreakUpText Input Values: senOrWords: words
+2019-05-01 16:10:04,953, Testing, INFO, Parsed text has a total of 345 Words
+2019-05-01 16:10:04,958, Testing, DEBUG, Length of stopwords 179, Length of Punctuation 32
+2019-05-01 16:10:04,961, Testing, INFO, Preprocessed List 345 records, Postprocess List 181 records 
+2019-05-01 16:11:32,783, Testing, INFO, Received Text Input with the following length in Characters: 1920
+2019-05-01 16:11:32,783, Testing, INFO, BreakUpText Input Values: senOrWords: words
+2019-05-01 16:11:32,801, Testing, INFO, Parsed text has a total of 345 Words
+2019-05-01 16:11:32,806, Testing, DEBUG, Length of stopwords 179, Length of Punctuation 32
+2019-05-01 16:11:32,808, Testing, INFO, Preprocessed List 345 records, Postprocess List 181 records 
+2019-05-01 16:12:04,986, Testing, INFO, Received Text Input with the following length in Characters: 1920
+2019-05-01 16:12:04,987, Testing, INFO, BreakUpText Input Values: senOrWords: words
+2019-05-01 16:12:05,005, Testing, INFO, Parsed text has a total of 345 Words
+2019-05-01 16:12:05,010, Testing, DEBUG, Length of stopwords 179, Length of Punctuation 32
+2019-05-01 16:12:05,012, Testing, INFO, Preprocessed List 345 records, Postprocess List 181 records 
+2019-05-01 16:15:31,516, Testing, INFO, Received Text Input with the following length in Characters: 1920
+2019-05-01 16:15:31,517, Testing, INFO, BreakUpText Input Values: senOrWords: words
+2019-05-01 16:15:31,538, Testing, INFO, Parsed text has a total of 345 Words
+2019-05-01 16:15:31,542, Testing, DEBUG, Length of stopwords 179, Length of Punctuation 32
+2019-05-01 16:15:31,548, Testing, INFO, Preprocessed List 345 records, Postprocess List 181 records 
+2019-05-01 16:20:08,900, Testing, INFO, Received Text Input with the following length in Characters: 1920
+2019-05-01 16:20:08,901, Testing, INFO, BreakUpText Input Values: senOrWords: words
+2019-05-01 16:20:08,921, Testing, INFO, Parsed text has a total of 345 Words
+2019-05-01 16:20:08,925, Testing, DEBUG, Length of stopwords 179, Length of Punctuation 32
+2019-05-01 16:20:08,927, Testing, INFO, Preprocessed List 345 records, Postprocess List 181 records 
+2019-05-01 16:22:47,070, Testing, INFO, Received Text Input with the following length in Characters: 1920
+2019-05-01 16:22:47,070, Testing, INFO, BreakUpText Input Values: senOrWords: words
+2019-05-01 16:22:47,098, Testing, INFO, Parsed text has a total of 345 Words
+2019-05-01 16:22:47,104, Testing, DEBUG, Length of stopwords 179, Length of Punctuation 32
+2019-05-01 16:22:47,108, Testing, INFO, Preprocessed List 345 records, Postprocess List 181 records 
+2019-05-01 16:22:47,108, Testing, INFO, createNGrams, Number of ngrams created from list provided: 180
+2019-05-01 16:22:47,113, Testing, INFO, createNGrams, Total Sorted NGrams list 177
+2019-05-01 19:36:57,994, Testing, INFO, Received Text Input with the following length in Characters: 1920
+2019-05-01 19:36:57,996, Testing, INFO, BreakUpText Input Values: senOrWords: words
+2019-05-01 19:36:58,051, Testing, INFO, Parsed text has a total of 345 Words
+2019-05-01 19:36:58,071, Testing, DEBUG, Length of stopwords 179, Length of Punctuation 32
+2019-05-01 19:36:58,075, Testing, INFO, Preprocessed List 345 records, Postprocess List 181 records 
+2019-05-01 19:36:58,077, Testing, INFO, createNGrams, Number of ngrams created from list provided: 180
+2019-05-01 19:36:58,083, Testing, INFO, createNGrams, Total Sorted NGrams list 177
+2019-05-01 19:37:47,347, Testing, INFO, Received Text Input with the following length in Characters: 1920
+2019-05-01 19:37:47,347, Testing, INFO, BreakUpText Input Values: senOrWords: words
+2019-05-01 19:37:47,355, Testing, INFO, Parsed text has a total of 345 Words
+2019-05-01 19:37:47,355, Testing, DEBUG, Length of stopwords 179, Length of Punctuation 32
+2019-05-01 19:37:47,366, Testing, INFO, Preprocessed List 345 records, Postprocess List 181 records 
+2019-05-01 19:37:47,367, Testing, INFO, createNGrams, Number of ngrams created from list provided: 180
+2019-05-01 19:37:47,368, Testing, INFO, createNGrams, Total Sorted NGrams list 177
+2019-05-01 19:40:11,875, Testing, INFO, Received Text Input with the following length in Characters: 1920
+2019-05-01 19:40:11,875, Testing, INFO, BreakUpText Input Values: senOrWords: words
+2019-05-01 19:40:11,903, Testing, INFO, Parsed text has a total of 345 Words
+2019-05-01 19:40:11,909, Testing, DEBUG, Length of stopwords 179, Length of Punctuation 32
+2019-05-01 19:40:11,912, Testing, INFO, Preprocessed List 345 records, Postprocess List 181 records 
+2019-05-01 19:40:11,913, Testing, INFO, createNGrams, Number of ngrams created from list provided: 180
+2019-05-01 19:40:11,916, Testing, INFO, createNGrams, Total Sorted NGrams list 177
+2019-05-01 19:40:11,921, Testing, INFO, Received Text Input with the following length in Characters: 1920
+2019-05-01 19:40:11,921, Testing, INFO, BreakUpText Input Values: senOrWords: words
+2019-05-01 19:40:11,925, Testing, INFO, Parsed text has a total of 345 Words
+2019-05-01 19:40:11,929, Testing, INFO, createNGrams, Number of ngrams created from list provided: 344
+2019-05-01 19:40:11,937, Testing, INFO, createNGrams, Total Sorted NGrams list 326
+2019-05-01 19:40:47,212, Testing, INFO, Received Text Input with the following length in Characters: 1920
+2019-05-01 19:40:47,212, Testing, INFO, BreakUpText Input Values: senOrWords: words
+2019-05-01 19:40:47,220, Testing, INFO, Parsed text has a total of 345 Words
+2019-05-01 19:40:47,232, Testing, DEBUG, Length of stopwords 179, Length of Punctuation 32
+2019-05-01 19:40:47,234, Testing, INFO, Preprocessed List 345 records, Postprocess List 181 records 
+2019-05-01 19:40:47,235, Testing, INFO, createNGrams, Number of ngrams created from list provided: 180
+2019-05-01 19:40:47,236, Testing, INFO, createNGrams, Total Sorted NGrams list 177
+2019-05-01 19:40:47,240, Testing, INFO, Received Text Input with the following length in Characters: 1920
+2019-05-01 19:40:47,240, Testing, INFO, BreakUpText Input Values: senOrWords: words
+2019-05-01 19:40:47,242, Testing, INFO, Parsed text has a total of 345 Words
+2019-05-01 19:40:47,244, Testing, INFO, createNGrams, Number of ngrams created from list provided: 344
+2019-05-01 19:40:47,245, Testing, INFO, createNGrams, Total Sorted NGrams list 326

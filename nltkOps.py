@@ -141,7 +141,7 @@ class NLTKops:
 		@param	senOrWords	(str)	Flag that will process and return data accordingly,
 									Ex: ['sen', 'words', 'both']
 		"""
-		self.log.info("Received Text Input with the following length in Characters: {}".format(len(text)))
+		self.log.info("Received Text Input with the following length in Characters: {}".format(len(textInput)))
 		self.log.info("BreakUpText Input Values: senOrWords: {}".format(senOrWords))
 		
 		# Converts Data to lowercase to help with ease of removing stop words
@@ -177,7 +177,8 @@ class NLTKops:
 		# We are using a set to remove dupilcates in the most efficent way
 		self.log.debug("Length of stopwords {}, Length of Punctuation {}".format( 	len(stopwords.words('english')),
 																				 	len(list(punctuation))))
-		stopWordsList =list( stopwords.words('english') + list(punctuation))
+		# Adding my personal list to remove quotes as well as they are causing issues with creating n grams
+		stopWordsList =list( stopwords.words('english') + list(punctuation) + ["'",'"','``',"''"] )
 		# Once the list is created we will be using a simple list comprehension method to return data
 		returnObj =  [word for word in textList if word not in stopWordsList]
 		self.log.info("Preprocessed List {} records, Postprocess List {} records ".format(len(textList), len(returnObj)))
@@ -189,13 +190,17 @@ class NLTKops:
 
 		@param	ngram	(int)	What Ngram value should we create
 		@param	returnAmount	(int)	How many of the top ngrams should be returned
-		@param	returnAll	(bool)	Return all of the ngrams that are created or only a 
+		@param	returnAll	(bool)	Return all of the ngrams that are created or only a
+		@param	returnCounts	(bool)	This will return the counts as well as 
+		@param	returnOrder	(str)	This is asking to return sorted ngrams list in asscending or decending order
+									opts ['asc', 'dsc'] 
 		"""
 		# Default Local Variables Established
 		ngramAmount = 2
 		returnAll =	True
 		returnAmount = 0 
-
+		returnCounts = False
+		returnOrder = 'dsc'
 		# Reading in the arguments provided by the function
 		for key in kwargs:
 			# This will look at different Given Arguments Passed by a Class and process them accordingly
@@ -207,18 +212,74 @@ class NLTKops:
 				returnAll = kwargs[key]
 			elif str(key).lower() == 'returnamount':
 				returnAmount = kwargs[key]
+			elif str(key).lower() == 'returncounts':
+				returnCounts = kwargs[key]
+			elif str(key).lower() == 'returnorder':
+				returnOrder = kwargs[key]
 
 		# Doing the Main processing of the Function 
-		listOfNGrams = nltkNGrams(listOfWords, 4)
-		return listOfNGrams
+		listOfNGrams = nltkNGrams(listOfWords, ngramAmount)
+		listOfNGrams = list(listOfNGrams)	# Due to the function returing a generator object we need to convert to list
+		self.log.info("createNGrams, Number of ngrams created from list provided: {}".format(len(listOfNGrams)))
+		#We will be making a set of listOfNGrams to make it easier for us to remove duplicates and get a count
+		setOfNGrams = set(listOfNGrams)
+		countsOfNGrams = []			# This structure will keep a count of the NGrams to help sort
+		for item in setOfNGrams:
+			countsOfNGrams.append((item, list(listOfNGrams).count(item)))
+		# Now we Sort the data based off the counts
+		if returnOrder == 'dsc':
+			countsOfNGrams.sort(key=lambda tupleValue: tupleValue[1], reverse=True)  # Sorts in place to given variables
+		else:
+			countsOfNGrams.sort(key=lambda tupleValue: tupleValue[1], reverse=False)  # Sorts in place to given variables
+		self.log.info("createNGrams, Total Sorted NGrams list {}".format(len(countsOfNGrams)))
+		####### This is the Return Portion and needs to be at the bottom of the function #########
+		# Resetting the Ngram inital list to only include values and not counts
+		if returnCounts == True:
+			listOfNGrams = countsOfNGrams
+		else:
+			listOfNGrams = []
+			for ngramValue in countsOfNGrams:
+				listOfNGrams.append(ngramValue[0])
+		# Checking to see if all ngrams are asked to be returned
+		if returnAll == True:
+			# Checking to see if user did not change the default value of returnAll and just gave returnAmt argument
+			if returnAmount > 0:
+				# If this value is greater than zero than it has been manually reset so it will return that amount
+				return listOfNGrams[:returnAmount]
+			else:
+				# If the value is 0 or less than zero than it has not be modified or is an illegal argument
+				# in which case the entire list will be returned. 
+				return listOfNGrams
+		elif returnAll == False:
+			# We will be going into this loop if we want a specific number of ngrams returned
+			if returnAmount > 0:
+				# If this value is greater than zero than it has been manually reset so it will return that amount
+				return listOfNGrams[:returnAmount]
+			else:
+				# If the value is 0 or less than zero than it has not be modified or is an illegal argument
+				# in which case the entire list will be returned. 
+				return listOfNGrams
+		else:
+			self.log.error("CreateNGrams, Reached UnExpected State with return values of ngram list")
 
 
 if __name__ == "__main__":
 	workerClass = NLTKops(name="Testing", logging = "both")
 	#print(workerClass.readFile(fileName="samples/sample2.txt"))
-	myList = workerClass.breakUpText(	text = workerClass.readFile(fileName="samples/sample2.txt"),
+	# Example 1 - With no stop Words and 2Grams to Check
+	myList = workerClass.breakUpText(	textInput = workerClass.readFile(fileName="samples/sample2.txt"),
 										senOrWords="words")
 	myListNoStopWords = workerClass.removeStopWords(textList = myList)
-	ngramList = workerClass.createNGrams(listOfWords = myListNoStopWords)
+	ngramList = workerClass.createNGrams(	listOfWords = myListNoStopWords, 
+											returnAmount = 10,
+											returnCounts = True)
+	lprint(ngramList)
+
+	#Example 2 - With Stop Words and 2Grams to Check
+	myList = workerClass.breakUpText(	textInput = workerClass.readFile(fileName="samples/sample2.txt"),
+										senOrWords="words")
+	ngramList = workerClass.createNGrams(	listOfWords = myList, 
+											returnAmount = 10,
+											returnCounts = True)
 	lprint(ngramList)
 	
