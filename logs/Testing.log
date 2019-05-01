@@ -15,3 +15,31 @@
 2019-04-29 15:30:17,019, Testing, INFO, BreakUpText Input Values: senOrWords: both
 2019-04-29 15:30:17,041, Testing, INFO, Parsed text has a total of 14 Sentences
 2019-04-29 15:30:17,046, Testing, INFO, Number of Words in Each Sentences: ['Sentence 0, Words 42', 'Sentence 1, Words 37', 'Sentence 2, Words 14', 'Sentence 3, Words 12', 'Sentence 4, Words 20', 'Sentence 5, Words 23', 'Sentence 6, Words 32', 'Sentence 7, Words 24', 'Sentence 8, Words 22', 'Sentence 9, Words 10', 'Sentence 10, Words 44', 'Sentence 11, Words 35', 'Sentence 12, Words 14', 'Sentence 13, Words 16']
+2019-04-30 22:34:18,847, Testing, INFO, Received Text Input with the following length in Characters: 1920
+2019-04-30 22:34:18,854, Testing, INFO, BreakUpText Input Values: senOrWords: both
+2019-04-30 22:36:27,248, Testing, INFO, Received Text Input with the following length in Characters: 1920
+2019-04-30 22:36:27,248, Testing, INFO, BreakUpText Input Values: senOrWords: both
+2019-04-30 22:36:27,260, Testing, INFO, Parsed text has a total of 14 Sentences
+2019-04-30 22:36:27,277, Testing, INFO, Number of Words in Each Sentences: ['Sentence 0, Words 42', 'Sentence 1, Words 37', 'Sentence 2, Words 14', 'Sentence 3, Words 12', 'Sentence 4, Words 20', 'Sentence 5, Words 23', 'Sentence 6, Words 32', 'Sentence 7, Words 24', 'Sentence 8, Words 22', 'Sentence 9, Words 10', 'Sentence 10, Words 44', 'Sentence 11, Words 35', 'Sentence 12, Words 14', 'Sentence 13, Words 16']
+2019-04-30 22:38:42,747, Testing, INFO, Received Text Input with the following length in Characters: 1920
+2019-04-30 22:38:42,747, Testing, INFO, BreakUpText Input Values: senOrWords: both
+2019-04-30 22:38:42,755, Testing, INFO, Parsed text has a total of 14 Sentences
+2019-04-30 22:38:42,755, Testing, INFO, Number of Words in Each Sentences: ['Sentence 0, Words 42', 'Sentence 1, Words 37', 'Sentence 2, Words 14', 'Sentence 3, Words 12', 'Sentence 4, Words 20', 'Sentence 5, Words 23', 'Sentence 6, Words 32', 'Sentence 7, Words 24', 'Sentence 8, Words 22', 'Sentence 9, Words 10', 'Sentence 10, Words 44', 'Sentence 11, Words 35', 'Sentence 12, Words 14', 'Sentence 13, Words 16']
+2019-04-30 22:38:42,768, Testing, DEBUG, Length of stopwords 179, Length of Punctuation 32
+2019-04-30 22:41:09,261, Testing, INFO, Received Text Input with the following length in Characters: 1920
+2019-04-30 22:41:09,262, Testing, INFO, BreakUpText Input Values: senOrWords: both
+2019-04-30 22:41:09,264, Testing, INFO, Parsed text has a total of 14 Sentences
+2019-04-30 22:41:09,264, Testing, INFO, Number of Words in Each Sentences: ['Sentence 0, Words 42', 'Sentence 1, Words 37', 'Sentence 2, Words 14', 'Sentence 3, Words 12', 'Sentence 4, Words 20', 'Sentence 5, Words 23', 'Sentence 6, Words 32', 'Sentence 7, Words 24', 'Sentence 8, Words 22', 'Sentence 9, Words 10', 'Sentence 10, Words 44', 'Sentence 11, Words 35', 'Sentence 12, Words 14', 'Sentence 13, Words 16']
+2019-04-30 22:41:09,264, Testing, DEBUG, Length of stopwords 179, Length of Punctuation 32
+2019-04-30 22:41:09,275, Testing, INFO, Preprocessed List 14 records, Postprocess List 14 records 
+2019-04-30 22:41:55,172, Testing, INFO, Received Text Input with the following length in Characters: 1920
+2019-04-30 22:41:55,172, Testing, INFO, BreakUpText Input Values: senOrWords: both
+2019-04-30 22:41:55,179, Testing, INFO, Parsed text has a total of 14 Sentences
+2019-04-30 22:41:55,187, Testing, INFO, Number of Words in Each Sentences: ['Sentence 0, Words 42', 'Sentence 1, Words 37', 'Sentence 2, Words 14', 'Sentence 3, Words 12', 'Sentence 4, Words 20', 'Sentence 5, Words 23', 'Sentence 6, Words 32', 'Sentence 7, Words 24', 'Sentence 8, Words 22', 'Sentence 9, Words 10', 'Sentence 10, Words 44', 'Sentence 11, Words 35', 'Sentence 12, Words 14', 'Sentence 13, Words 16']
+2019-04-30 22:41:55,190, Testing, DEBUG, Length of stopwords 179, Length of Punctuation 32
+2019-04-30 22:41:55,191, Testing, INFO, Preprocessed List 14 records, Postprocess List 14 records 
+2019-04-30 22:43:27,847, Testing, INFO, Received Text Input with the following length in Characters: 1920
+2019-04-30 22:43:27,847, Testing, INFO, BreakUpText Input Values: senOrWords: words
+2019-04-30 22:43:27,860, Testing, INFO, Parsed text has a total of 345 Words
+2019-04-30 22:43:27,864, Testing, DEBUG, Length of stopwords 179, Length of Punctuation 32
+2019-04-30 22:43:27,866, Testing, INFO, Preprocessed List 345 records, Postprocess List 197 records 

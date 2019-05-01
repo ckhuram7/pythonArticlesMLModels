@@ -14,7 +14,7 @@ from nltk.tokenize import word_tokenize, sent_tokenize
 from nltk.corpus import stopwords 	# Includes list of stop words like [a, the, etc]
 from string import punctuation		# Includes all known punctuation for english language to help clean tokenized data
 # For Creating the N Grams counter
-from nltk.util import ngrams
+from nltk.util import ngrams as nltkNGrams		# Helps to Create NGrams for each list of words provided
 
 
 
@@ -110,7 +110,29 @@ class NLTKops:
 			self.log.error("File Does not exist in the given path and could not be opened")
 			raise FileExistsError("File Does not exist in directory")
 
-	def breakUpText(self, text, senOrWords):
+	def downloadNLTKPackages(self):
+		"""
+		This will try to execute a python file to make sure all NLTK packages are downloaded
+		"""
+		nltk.download('punkt')
+		nltk.download('stopwords')
+	
+	def createListFromFile(self, fileName):
+		"""
+		Takes an input of Filename and reads the given file and splits it into a list of lines to be processed.  
+		@param fileName (str)  The file name to open in current directory to processs
+
+		returns list of lines from the file
+		"""
+		try:
+			with open(self.base + "/" + fileName, 'r') as inputFile:
+				myListOfLines = inputFile.read().splitlines()
+				self.log.info("Read in from: {} and created a list of {} elements".format(fileName, len(myListOfLines)))
+				return myListOfLines
+		except Exception as error:
+			self.log.error("Could not parse file: {}".format(error))
+
+	def breakUpText(self, textInput, senOrWords, lowercase=True):
 		"""
 		This Function Simply uses the NLTK functions and breaks up a given text String accordingly and 
 		returns the list of elements that are a result of the operations.
@@ -121,6 +143,14 @@ class NLTKops:
 		"""
 		self.log.info("Received Text Input with the following length in Characters: {}".format(len(text)))
 		self.log.info("BreakUpText Input Values: senOrWords: {}".format(senOrWords))
+		
+		# Converts Data to lowercase to help with ease of removing stop words
+		if lowercase == True:
+			text = textInput.lower()
+		else:
+			text = textInput
+		
+		# Does the Main Processing of the Function 
 		if senOrWords.lower() in ['sentence','sen']:
 			returnObj = sent_tokenize(text = text, language='english')
 			self.log.info("Parsed text has a total of {} Sentences".format(len(returnObj)))
@@ -147,16 +177,48 @@ class NLTKops:
 		# We are using a set to remove dupilcates in the most efficent way
 		self.log.debug("Length of stopwords {}, Length of Punctuation {}".format( 	len(stopwords.words('english')),
 																				 	len(list(punctuation))))
-		stopWordsList =set( stopwords.words('english') + list(punctuation))
+		stopWordsList =list( stopwords.words('english') + list(punctuation))
 		# Once the list is created we will be using a simple list comprehension method to return data
 		returnObj =  [word for word in textList if word not in stopWordsList]
 		self.log.info("Preprocessed List {} records, Postprocess List {} records ".format(len(textList), len(returnObj)))
-		return retrunObj 
+		return returnObj 
 
-	def createNGrams(self, textList, **kwargs)
+	def createNGrams(self, listOfWords, **kwargs):
+		"""
+		Used NLTK ngram function to create ngrams from given arguments
+
+		@param	ngram	(int)	What Ngram value should we create
+		@param	returnAmount	(int)	How many of the top ngrams should be returned
+		@param	returnAll	(bool)	Return all of the ngrams that are created or only a 
+		"""
+		# Default Local Variables Established
+		ngramAmount = 2
+		returnAll =	True
+		returnAmount = 0 
+
+		# Reading in the arguments provided by the function
+		for key in kwargs:
+			# This will look at different Given Arguments Passed by a Class and process them accordingly
+			if str(key).lower() == 'given_argument':
+				pass
+			elif str(key).lower() in ['ngram', 'ngrams']:
+				ngramAmount = kwargs[key]
+			elif str(key).lower() == 'returnall':
+				returnAll = kwargs[key]
+			elif str(key).lower() == 'returnamount':
+				returnAmount = kwargs[key]
+
+		# Doing the Main processing of the Function 
+		listOfNGrams = nltkNGrams(listOfWords, 4)
+		return listOfNGrams
+
+
 if __name__ == "__main__":
 	workerClass = NLTKops(name="Testing", logging = "both")
 	#print(workerClass.readFile(fileName="samples/sample2.txt"))
 	myList = workerClass.breakUpText(	text = workerClass.readFile(fileName="samples/sample2.txt"),
-										senOrWords="both")
+										senOrWords="words")
+	myListNoStopWords = workerClass.removeStopWords(textList = myList)
+	ngramList = workerClass.createNGrams(listOfWords = myListNoStopWords)
+	lprint(ngramList)
 	
