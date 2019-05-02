@@ -1,0 +1,135 @@
+2019-05-02 09:07:42,018, DP_Testing, INFO, Starting to Read file to create Test and Train Data Files formatting them as needed
+2019-05-02 09:07:42,019, DP_Testing, INFO, Received the following fileNames for the raw files to create test and train data from: ['dataSetOriginal/articles1.csv']
+2019-05-02 09:08:47,130, DP_Testing, INFO, Starting to Read file to create Test and Train Data Files formatting them as needed
+2019-05-02 09:08:47,130, DP_Testing, INFO, Received the following fileNames for the raw files to create test and train data from: ['dataSetOriginal/articles1.csv']
+2019-05-02 09:08:49,168, DP_Testing, INFO, Generated Dataframe has the following dimensions: (50000, 10)
+2019-05-02 09:08:49,203, DP_Testing, INFO, Generated Dataframe columns: Index(['Unnamed: 0', 'id', 'title', 'publication', 'author', 'date', 'year',
+       'month', 'url', 'content'],
+      dtype='object')
+2019-05-02 09:15:01,609, DP_Testing, INFO, Starting to Read file to create Test and Train Data Files formatting them as needed
+2019-05-02 09:15:01,611, DP_Testing, INFO, Received the following fileNames for the raw files to create test and train data from: ['dataSetOriginal/articles1.csv']
+2019-05-02 09:15:03,649, DP_Testing, INFO, Generated Dataframe has the following dimensions: (50000, 10)
+2019-05-02 09:15:03,651, DP_Testing, INFO, Generated Dataframe columns: Index(['Unnamed: 0', 'id', 'title', 'publication', 'author', 'date', 'year',
+       'month', 'url', 'content'],
+      dtype='object')
+2019-05-02 09:15:48,786, DP_Testing, INFO, Starting to Read file to create Test and Train Data Files formatting them as needed
+2019-05-02 09:15:48,786, DP_Testing, INFO, Received the following fileNames for the raw files to create test and train data from: ['dataSetOriginal/articles1.csv']
+2019-05-02 09:15:50,790, DP_Testing, INFO, Generated Dataframe has the following dimensions: (50000, 10)
+2019-05-02 09:15:50,796, DP_Testing, INFO, Generated Dataframe columns: Index(['Unnamed: 0', 'id', 'title', 'publication', 'author', 'date', 'year',
+       'month', 'url', 'content'],
+      dtype='object')
+2019-05-02 09:23:29,222, DP_Testing, INFO, Starting to Read file to create Test and Train Data Files formatting them as needed
+2019-05-02 09:23:29,222, DP_Testing, INFO, Received the following fileNames for the raw files to create test and train data from: ['dataSetOriginal/articles1.csv']
+2019-05-02 09:23:31,294, DP_Testing, INFO, Generated Dataframe has the following dimensions: (50000, 10)
+2019-05-02 09:23:31,295, DP_Testing, INFO, Generated Dataframe columns: Index(['Unnamed: 0', 'id', 'title', 'publication', 'author', 'date', 'year',
+       'month', 'url', 'content'],
+      dtype='object')
+2019-05-02 09:23:31,323, DP_Testing, INFO, Counts of Different features that exist in the dataFrame: publication
+2019-05-02 09:26:02,443, DP_Testing, INFO, Starting to Read file to create Test and Train Data Files formatting them as needed
+2019-05-02 09:26:02,445, DP_Testing, INFO, Received the following fileNames for the raw files to create test and train data from: ['dataSetOriginal/articles1.csv']
+2019-05-02 09:26:04,551, DP_Testing, INFO, Generated Dataframe has the following dimensions: (50000, 10)
+2019-05-02 09:26:04,552, DP_Testing, INFO, Generated Dataframe columns: Index(['Unnamed: 0', 'id', 'title', 'publication', 'author', 'date', 'year',
+       'month', 'url', 'content'],
+      dtype='object')
+2019-05-02 09:26:04,570, DP_Testing, INFO, Counts of Different features that exist in the dataFrame: [['Breitbart', 'CNN', 'New York Times', 'Business Insider', 'Atlantic'], [23781, 11488, 7803, 6757, 171]]
+2019-05-02 09:26:51,063, DP_Testing, INFO, Starting to Read file to create Test and Train Data Files formatting them as needed
+2019-05-02 09:26:51,063, DP_Testing, INFO, Received the following fileNames for the raw files to create test and train data from: ['dataSetOriginal/articles2.csv']
+2019-05-02 09:26:53,451, DP_Testing, INFO, Generated Dataframe has the following dimensions: (49999, 10)
+2019-05-02 09:26:53,466, DP_Testing, INFO, Generated Dataframe columns: Index(['Unnamed: 0', 'id', 'title', 'publication', 'author', 'date', 'year',
+       'month', 'url', 'content'],
+      dtype='object')
+2019-05-02 09:26:53,487, DP_Testing, INFO, Counts of Different features that exist in the dataFrame: [['New York Post', 'Atlantic', 'National Review', 'Talking Points Memo', 'Guardian', 'Buzzfeed News', 'Fox News'], [17493, 7008, 6203, 5214, 4873, 4854, 4354]]
+2019-05-02 10:18:48,593, DP_Testing, INFO, Starting to Read file to create Test and Train Data Files formatting them as needed
+2019-05-02 10:18:48,593, DP_Testing, INFO, Received the following fileNames for the raw files to create test and train data from: ['dataSetOriginal/articles2.csv']
+2019-05-02 10:18:51,101, DP_Testing, INFO, Generated Dataframe has the following dimensions: (49999, 10)
+2019-05-02 10:18:51,101, DP_Testing, INFO, Generated Dataframe columns: Index(['Unnamed: 0', 'id', 'title', 'publication', 'author', 'date', 'year',
+       'month', 'url', 'content'],
+      dtype='object')
+2019-05-02 10:18:51,130, DP_Testing, INFO, Counts of Different features that exist in the dataFrame: [['New York Post', 'Atlantic', 'National Review', 'Talking Points Memo', 'Guardian', 'Buzzfeed News', 'Fox News'], [17493, 7008, 6203, 5214, 4873, 4854, 4354]]
+2019-05-02 10:20:17,850, DP_Testing, INFO, Starting to Read file to create Test and Train Data Files formatting them as needed
+2019-05-02 10:20:17,851, DP_Testing, INFO, Received the following fileNames for the raw files to create test and train data from: ['dataSetOriginal/articles2.csv']
+2019-05-02 10:20:20,180, DP_Testing, INFO, Generated Dataframe has the following dimensions: (49999, 10)
+2019-05-02 10:20:20,196, DP_Testing, INFO, Generated Dataframe columns: Index(['Unnamed: 0', 'id', 'title', 'publication', 'author', 'date', 'year',
+       'month', 'url', 'content'],
+      dtype='object')
+2019-05-02 10:20:20,217, DP_Testing, INFO, Counts of Different features that exist in the dataFrame: [['New York Post', 'Atlantic', 'National Review', 'Talking Points Memo', 'Guardian', 'Buzzfeed News', 'Fox News'], [17493, 7008, 6203, 5214, 4873, 4854, 4354]]
+2019-05-02 10:21:02,913, DP_Testing, INFO, Starting to Read file to create Test and Train Data Files formatting them as needed
+2019-05-02 10:21:02,913, DP_Testing, INFO, Received the following fileNames for the raw files to create test and train data from: ['dataSetOriginal/articles2.csv']
+2019-05-02 10:21:05,239, DP_Testing, INFO, Generated Dataframe has the following dimensions: (49999, 10)
+2019-05-02 10:21:05,252, DP_Testing, INFO, Generated Dataframe columns: Index(['Unnamed: 0', 'id', 'title', 'publication', 'author', 'date', 'year',
+       'month', 'url', 'content'],
+      dtype='object')
+2019-05-02 10:21:05,275, DP_Testing, INFO, Counts of Different features that exist in the dataFrame: [['New York Post', 'Atlantic', 'National Review', 'Talking Points Memo', 'Guardian', 'Buzzfeed News', 'Fox News'], [17493, 7008, 6203, 5214, 4873, 4854, 4354]]
+2019-05-02 10:21:05,275, DP_Testing, INFO, Proposed Numbers to Split Records evenly: [400, 400, 400, 400, 400]
+2019-05-02 10:21:36,569, DP_Testing, INFO, Starting to Read file to create Test and Train Data Files formatting them as needed
+2019-05-02 10:21:36,569, DP_Testing, INFO, Received the following fileNames for the raw files to create test and train data from: ['dataSetOriginal/articles2.csv']
+2019-05-02 10:21:38,886, DP_Testing, INFO, Generated Dataframe has the following dimensions: (49999, 10)
+2019-05-02 10:21:38,887, DP_Testing, INFO, Generated Dataframe columns: Index(['Unnamed: 0', 'id', 'title', 'publication', 'author', 'date', 'year',
+       'month', 'url', 'content'],
+      dtype='object')
+2019-05-02 10:21:38,905, DP_Testing, INFO, Counts of Different features that exist in the dataFrame: [['New York Post', 'Atlantic', 'National Review', 'Talking Points Memo', 'Guardian', 'Buzzfeed News', 'Fox News'], [17493, 7008, 6203, 5214, 4873, 4854, 4354]]
+2019-05-02 10:21:38,905, DP_Testing, INFO, Proposed Numbers to Split Records evenly: [400, 400, 400, 400, 400]
+2019-05-02 10:23:03,754, DP_Testing, INFO, Starting to Read file to create Test and Train Data Files formatting them as needed
+2019-05-02 10:23:03,754, DP_Testing, INFO, Received the following fileNames for the raw files to create test and train data from: ['dataSetOriginal/articles2.csv']
+2019-05-02 10:23:06,111, DP_Testing, INFO, Generated Dataframe has the following dimensions: (49999, 10)
+2019-05-02 10:23:06,118, DP_Testing, INFO, Generated Dataframe columns: Index(['Unnamed: 0', 'id', 'title', 'publication', 'author', 'date', 'year',
+       'month', 'url', 'content'],
+      dtype='object')
+2019-05-02 10:23:06,137, DP_Testing, INFO, Counts of Different features that exist in the dataFrame: [['New York Post', 'Atlantic', 'National Review', 'Talking Points Memo', 'Guardian', 'Buzzfeed News', 'Fox News'], [17493, 7008, 6203, 5214, 4873, 4854, 4354]]
+2019-05-02 10:23:06,138, DP_Testing, INFO, Proposed Numbers to Split Records evenly: [400, 400, 400, 400, 400]
+2019-05-02 10:23:52,000, DP_Testing, INFO, Starting to Read file to create Test and Train Data Files formatting them as needed
+2019-05-02 10:23:52,002, DP_Testing, INFO, Received the following fileNames for the raw files to create test and train data from: ['dataSetOriginal/articles2.csv']
+2019-05-02 10:23:54,354, DP_Testing, INFO, Generated Dataframe has the following dimensions: (49999, 10)
+2019-05-02 10:23:54,361, DP_Testing, INFO, Generated Dataframe columns: Index(['Unnamed: 0', 'id', 'title', 'publication', 'author', 'date', 'year',
+       'month', 'url', 'content'],
+      dtype='object')
+2019-05-02 10:23:54,379, DP_Testing, INFO, Counts of Different features that exist in the dataFrame: [['New York Post', 'Atlantic', 'National Review', 'Talking Points Memo', 'Guardian', 'Buzzfeed News', 'Fox News'], [17493, 7008, 6203, 5214, 4873, 4854, 4354]]
+2019-05-02 10:23:54,379, DP_Testing, INFO, Proposed Numbers to Split Records evenly: [400, 400, 400, 400, 400]
+2019-05-02 10:47:35,280, DP_Testing, INFO, Starting to Read file to create Test and Train Data Files formatting them as needed
+2019-05-02 10:47:35,280, DP_Testing, INFO, Received the following fileNames for the raw files to create test and train data from: ['dataSetOriginal/articles2.csv']
+2019-05-02 10:47:37,741, DP_Testing, INFO, Generated Dataframe has the following dimensions: (49999, 10)
+2019-05-02 10:47:37,742, DP_Testing, INFO, Generated Dataframe columns: Index(['Unnamed: 0', 'id', 'title', 'publication', 'author', 'date', 'year',
+       'month', 'url', 'content'],
+      dtype='object')
+2019-05-02 10:47:37,769, DP_Testing, INFO, Counts of Different features that exist in the dataFrame: [['New York Post', 'Atlantic', 'National Review', 'Talking Points Memo', 'Guardian', 'Buzzfeed News', 'Fox News'], [17493, 7008, 6203, 5214, 4873, 4854, 4354]]
+2019-05-02 10:47:37,769, DP_Testing, INFO, Proposed Numbers to Split Records evenly: [400, 400, 400, 400, 400]
+2019-05-02 10:47:37,783, DP_Testing, INFO, Shape of Split DF (400, 4), Split on publication == 17493
+2019-05-02 10:47:37,793, DP_Testing, INFO, Shape of Split DF (400, 4), Split on publication == 7008
+2019-05-02 10:47:37,809, DP_Testing, INFO, Shape of Split DF (400, 4), Split on publication == 6203
+2019-05-02 10:47:37,818, DP_Testing, INFO, Shape of Split DF (400, 4), Split on publication == 5214
+2019-05-02 10:47:37,829, DP_Testing, INFO, Shape of Split DF (400, 4), Split on publication == 4873
+2019-05-02 10:47:37,834, DP_Testing, INFO, Train Sub DF shape (200, 4), Split on publication == 17493
+2019-05-02 10:47:37,835, DP_Testing, INFO, Test Sub DF shape (200, 4), Split on publication == 17493
+2019-05-02 10:47:37,836, DP_Testing, INFO, Train Sub DF shape (200, 4), Split on publication == 7008
+2019-05-02 10:47:37,837, DP_Testing, INFO, Test Sub DF shape (200, 4), Split on publication == 7008
+2019-05-02 10:47:37,838, DP_Testing, INFO, Train Sub DF shape (200, 4), Split on publication == 6203
+2019-05-02 10:47:37,839, DP_Testing, INFO, Test Sub DF shape (200, 4), Split on publication == 6203
+2019-05-02 10:47:37,840, DP_Testing, INFO, Train Sub DF shape (200, 4), Split on publication == 5214
+2019-05-02 10:47:37,841, DP_Testing, INFO, Test Sub DF shape (200, 4), Split on publication == 5214
+2019-05-02 10:47:37,842, DP_Testing, INFO, Train Sub DF shape (200, 4), Split on publication == 4873
+2019-05-02 10:47:37,843, DP_Testing, INFO, Test Sub DF shape (200, 4), Split on publication == 4873
+2019-05-02 10:47:38,489, DP_Testing, INFO, Created Files, File 1 Train_2019_05_02_10_47_35.csv, File 2 Test_2019_05_02_10_47_35.csv
+2019-05-02 10:52:21,173, DP_Testing, INFO, Starting to Read file to create Test and Train Data Files formatting them as needed
+2019-05-02 10:52:21,175, DP_Testing, INFO, Received the following fileNames for the raw files to create test and train data from: ['dataSetOriginal/articles2.csv']
+2019-05-02 10:52:23,509, DP_Testing, INFO, Generated Dataframe has the following dimensions: (49999, 10)
+2019-05-02 10:52:23,513, DP_Testing, INFO, Generated Dataframe columns: Index(['Unnamed: 0', 'id', 'title', 'publication', 'author', 'date', 'year',
+       'month', 'url', 'content'],
+      dtype='object')
+2019-05-02 10:52:23,536, DP_Testing, INFO, Counts of Different features that exist in the dataFrame: [['New York Post', 'Atlantic', 'National Review', 'Talking Points Memo', 'Guardian', 'Buzzfeed News', 'Fox News'], [17493, 7008, 6203, 5214, 4873, 4854, 4354]]
+2019-05-02 10:52:23,540, DP_Testing, INFO, Proposed Numbers to Split Records evenly: [400, 400, 400, 400, 400]
+2019-05-02 10:52:23,553, DP_Testing, INFO, Shape of Split DF (400, 4), Split on publication == New York Post, Out Of 17493 possible records
+2019-05-02 10:52:23,565, DP_Testing, INFO, Shape of Split DF (400, 4), Split on publication == Atlantic, Out Of 7008 possible records
+2019-05-02 10:52:23,573, DP_Testing, INFO, Shape of Split DF (400, 4), Split on publication == National Review, Out Of 6203 possible records
+2019-05-02 10:52:23,584, DP_Testing, INFO, Shape of Split DF (400, 4), Split on publication == Talking Points Memo, Out Of 5214 possible records
+2019-05-02 10:52:23,595, DP_Testing, INFO, Shape of Split DF (400, 4), Split on publication == Guardian, Out Of 4873 possible records
+2019-05-02 10:52:23,596, DP_Testing, INFO, Train Sub DF shape (200, 4), Split on publication == New York Post, Out Of 17493 possible records
+2019-05-02 10:52:23,597, DP_Testing, INFO, Test Sub DF shape (200, 4), Split on publication == New York Post, Out Of 17493 possible records
+2019-05-02 10:52:23,598, DP_Testing, INFO, Train Sub DF shape (200, 4), Split on publication == Atlantic, Out Of 7008 possible records
+2019-05-02 10:52:23,598, DP_Testing, INFO, Test Sub DF shape (200, 4), Split on publication == Atlantic, Out Of 7008 possible records
+2019-05-02 10:52:23,600, DP_Testing, INFO, Train Sub DF shape (200, 4), Split on publication == National Review, Out Of 6203 possible records
+2019-05-02 10:52:23,600, DP_Testing, INFO, Test Sub DF shape (200, 4), Split on publication == National Review, Out Of 6203 possible records
+2019-05-02 10:52:23,601, DP_Testing, INFO, Train Sub DF shape (200, 4), Split on publication == Talking Points Memo, Out Of 5214 possible records
+2019-05-02 10:52:23,601, DP_Testing, INFO, Test Sub DF shape (200, 4), Split on publication == Talking Points Memo, Out Of 5214 possible records
+2019-05-02 10:52:23,602, DP_Testing, INFO, Train Sub DF shape (200, 4), Split on publication == Guardian, Out Of 4873 possible records
+2019-05-02 10:52:23,604, DP_Testing, INFO, Test Sub DF shape (200, 4), Split on publication == Guardian, Out Of 4873 possible records
+2019-05-02 10:52:23,999, DP_Testing, INFO, Created Files, File 1 Train_2019_05_02_10_52_21.csv, File 2 Test_2019_05_02_10_52_21.csv
