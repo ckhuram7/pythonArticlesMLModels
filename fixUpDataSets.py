@@ -7,9 +7,10 @@
 
 #Libraries Imported to help with processing data
 import pandas
+import os
 import numpy
 import logging
-
+import datetime
 
 class DataPrep:
 	"""
@@ -112,6 +113,33 @@ class DataPrep:
 		except Exception as error:
 			self.log.error("Could not parse file: {}".format(error))
 
+	def splitRecords(self, numToBalance, numOfBots):
+		"""
+		This function will trying to split the records to process as evenly as possible based of the number of bots provided 
+		and creates a list that gives how many records each bot should end up running.
+
+		@param  numToBalance    (int)   The number of records that the overall project has to run
+		@param  numOfBots   (int)   The number of bots that are running that need to have the records split amongst
+		"""
+		# List of Values that need to be returned letting the user know how many records to process for each bot
+		listToReturn = []
+		# Checking if the number Divides up evenly, if it does than it will return a list of how many records each bot should have
+		if (numToBalance % numOfBots) == 0:
+			# Will Go through the number of Bots that need to run to slit records as evenly as possible
+			for value in range(numOfBots):
+				listToReturn.append(numToBalance // numOfBots)
+		# This will process if the numbers do not divde evenly and we need to split records unevenly 
+		else:
+			# Will Go through the number of Bots that need to run to slit records as evenly as possible
+			for value in range(numOfBots):
+				# If the remainder is more than the bot number to be splitting the records for
+				if (numToBalance % numOfBots) > value:
+					listToReturn.append((numToBalance // numOfBots) + 1)
+				# If the remainder is less than the bot number to be splitting the records for
+				else:
+					listToReturn.append(numToBalance // numOfBots)
+		return (listToReturn)
+
 	def makeTestTrainFiles(self, fileNames, **kwargs):
 		"""
 		This function will read in the raw data files and parse them accordingly to create test and train datasets
@@ -119,15 +147,21 @@ class DataPrep:
 		@param  fileNames   (list)  List of files with articles that need to be read in
 		@param  columnNames (list)  List of Column Names that should be kept from the file that is read in
 		@param  numOfFeatures   (int)   This is the number of the different features that should be returned
+		@param	specificFeatures	(list)	This is a list of the specific features that we will be using
 		@param  featureCol  (str)   The column name that will be used as a feature that we will be testing for and training on
 		@param  numOfRecPerFile (int)   THe number of rows that each file created will have
+		@param	outputFileNames (list)	This will include the outputFileNames 
+		@param	returnDFs	(bool)	If this is True than it will return the dataFrames instead of fileNames
 		"""
 		# Local Function Variables
 		listOfDataFrames = []
 		listOfColumns = []
 		numOfFeatures = 5
 		featureCol = ''
-
+		numOfRecPerFile = 1000
+		outputFileNames = [	"Train_" + datetime.datetime.today().strftime("%Y_%m_%d_%H_%M_%S") + ".csv",
+							"Test_" + datetime.datetime.today().strftime("%Y_%m_%d_%H_%M_%S") + ".csv" ]
+		returnDF = False
 		# Reading in the arguments provided by the function
 		for key in kwargs:
 			# This will look at different Given Arguments Passed by a Class and process them accordingly
@@ -139,13 +173,19 @@ class DataPrep:
 				numOfFeatures = kwargs[key]
 			elif str(key).lower() == 'featurecol':
 				featureCol = kwargs[key]
+			elif str(key).lower() == 'numofrecperfile':
+				numOfRecPerFile = kwargs[key]
+			elif str(key).lower() == 'outputfilenames':
+				outputFileNames  = kwargs[key]
+			elif str(key).lower() == 'returndf':
+				returnDF  = kwargs[key]
 
 		self.log.info("Starting to Read file to create Test and Train Data Files formatting them as needed")
 		self.log.info("Received the following fileNames for the raw files to create test and train data from: {}".format(fileNames))
 		for fileName in fileNames:
 			# For Each Data Record within this scope already has an index so it will be redundant to include another index and waste
 			# of computer resources making another column
-			listOfDataFrames.append(pandas.read_csv(filepath_or_buffer = fileName, index_col= false))
+			listOfDataFrames.append(pandas.read_csv(filepath_or_buffer = fileName, index_col= False))
 		
 		# Now to Concat the list of DataFrames if there is more than one.
 		if len(fileNames) > 1:
@@ -153,7 +193,7 @@ class DataPrep:
 			opsDF = pandas.concat(listOfDataFrames)
 		else:
 			#Will Go Into this test If the size of the DataFrame is 1 or less
-			opsDf = listOfDataFrames[0]
+			opsDF = listOfDataFrames[0]
 		self.log.info("Generated Dataframe has the following dimensions: {}".format(str(opsDF.shape)))
 		self.log.info("Generated Dataframe columns: {}".format(str(opsDF.columns)))
 		
@@ -168,25 +208,76 @@ class DataPrep:
 				else:
 					self.log.error("Failure when checking if listOfColumns exist in pandas DataFrame: {}".format(set(listOfColumns).issubset(opsDF.columns)))
 					raise IndexError("Not all elements requested are part of pandas Dataframe")
+		# else: # This wont be needed as any records that do not fit above means original DataFrame will be used
+		# This Portion we will be using all of the DataFrame columns that are provided
+		
+		# We first at if the feature column exists 
+		if featureCol in opsDF.columns.tolist(): 
+			# This is to extract the total number of features that are available
+			featureCounts = [ 	opsDF[featureCol].value_counts().keys().tolist(),
+								opsDF[featureCol].value_counts().tolist()	]
+
+			self.log.info("Counts of Different features that exist in the dataFrame: {}".format(str(featureCounts)))
+			# Now we Check to see if we have enough features to meet the number of different features requested
+			# Due to the way we have retrevied the information we need to check first element list to verify the count
+			# of different records that exist in new dataFrame
+			if numOfFeatures <= len(featureCounts[0]):
+				# We Multiply by Two to allow for easier split between Train and Test Records
+				sampleSize = self.splitRecords( numToBalance = (numOfRecPerFile * 2), numOfBots=numOfFeatures)
+				self.log.info("Proposed Numbers to Split Records evenly: {}".format(sampleSize))
+				listOfSampleDFs = []	# Split Samples Records - TO make sure there is no overlap
+				listOfTrainDFs = []		# Records Split to include only the Training Data for File Creation
+				listOfTestDFs = []		# Records Split to include only the Testing Data for File Creation
+				# We will Check through and sample each of the minor dfs which only include the column record we are looking for
+				# Once it parses that it will make sure the records are evenly split
+				for iterObj, sizePull in enumerate(sampleSize):
+					listOfSampleDFs.append( (opsDF.loc[opsDF[featureCol] == featureCounts[0][iterObj]]).sample(n=sizePull) )
+					self.log.info("Shape of Split DF {}, Split on {} == {}, Out Of {} possible records".format(	str(listOfSampleDFs[iterObj].shape), 
+																												featureCol,
+																												featureCounts[0][iterObj],
+																					 							featureCounts[1][iterObj]))
+				# Now we will Split the records as evenly as possible
+				for iterObj, sampleDF in enumerate(listOfSampleDFs):
+					sliceInt = int(sampleDF.shape[0] / 2)
+					listOfTestDFs.append(sampleDF[:sliceInt])
+					listOfTrainDFs.append(sampleDF[sliceInt:])
+					self.log.info("Train Sub DF shape {}, Split on {} == {}, Out Of {} possible records".format(str(listOfTrainDFs[iterObj].shape), 
+																												featureCol,
+																												featureCounts[0][iterObj],
+																												featureCounts[1][iterObj]) )
+					self.log.info("Test Sub DF shape {}, Split on {} == {}, Out Of {} possible records".format(	str(listOfTestDFs[iterObj].shape), 
+																												featureCol,
+																												featureCounts[0][iterObj],
+																												featureCounts[1][iterObj]) )
+				# Concatting the SubDivided DataFrames into One
+				testDF = pandas.concat(listOfTestDFs)
+				trainDF = pandas.concat(listOfTrainDFs)
+
+				# Outputting Files to CSV
+				testDF.to_csv( 	outputFileNames[1],	index = False)
+				trainDF.to_csv(	outputFileNames[0],	index = False)
+			else:
+				raise ValueError("Not enough different features to meet requirements: Requested {}, Available {}".format(numOfFeatures, len(featureCounts[0])))
 		else:
-
-
+			raise IndexError("Feature Column {} not in Dataframe {}".format(featureCol, str(opsDF.columns)))
+		
+		# This is working on the Return portion of the Function
+		if returnDF == True:
+			self.log.info("Return DataFrames, DF 1 Shape {}, DF 2 Shape {}".format(	str(testDF.shape), 
+																					str(trainDF.shape)))
+			return [testDF, trainDF]
+		else:
+			# Returning FileNames which are created
+			self.log.info("Created Files, File 1 {}, File 2 {}".format(	outputFileNames[0],
+																		outputFileNames[1]))
+			return outputFileNames
 
 
 if __name__ == '__main__':
-	workerClass = WordScraper(name = "Week5", logging=True)
-	myTagger = nltk.load('taggers/maxent_treebank_pos_tagger/english.pickle'
+	workerClass = DataPrep(name = "DP_Testing", logging = "both")
+	workerClass.makeTestTrainFiles(	fileNames = ['dataSetOriginal/articles2.csv'],
+									columnNames = ['title', 'publication', 'author', 'content'],
+									numOfFeatures = 5,
+									numOfRecPerFile = 1000,
+									featureCol = 'publication')
 
-	# When Read in From File
-	text = workerClass.readFile(fileName = "input.txt")
-	
-	positiveWords = workerClass.createListFromFile(fileName = "positive-words.txt")
-	negativeWords = workerClass.createListFromFile(fileName = "negative-words.txt")
-
-	sentences = nltk.sent_tokenize(text)
-
-	for sentence in sentences:
-		print(workerClass.processSentence( 	sentence=sentence.lower(),
-											posLex = positiveWords,
-											negLex = negativeWords,
-											tagger = myTagger))
