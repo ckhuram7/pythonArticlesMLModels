@@ -182,9 +182,12 @@ class Nsgclass:
 		if tabbedFile == True:
 			with codecs.open(fileName, 'r',  encoding='utf-8', errors='ignore' ) as inputFile:
 				for line in inputFile.readlines():
-					rawDataObj, rawDataLabel = line.strip().split('\t')
-					rawData.append(rawDataObj.lower())
-					rawDataLabels.append(rawDataLabel.lower())
+					try:
+						rawDataObj, rawDataLabel = line.strip().split('\t')
+						rawData.append(rawDataObj.lower())
+						rawDataLabels.append(rawDataLabel.lower())
+					except Exception as error:
+						self.log.error("Could not parse this line from {} line {}, error {}".format(fileName, line, error))
 			return  rawDataLabels, rawData
 		# Now if we are reading in a file that is a csv file, we will use Pandas
 		if csvFile == True:
@@ -275,6 +278,7 @@ class Nsgclass:
 if __name__ == '__main__':
 	# For your own log file to avoid merge conflicts = Name the class something else
 	workerClass = Nsgclass(name = "FinalOutput", logging="Both")
+	"""
 	workerClass.log.info("Inital Run with files than have no more than 1000 records and have 5 unique features")
 	# Load Data 
 	testData, testLabel = workerClass.loadData( fileName = 'Test',
@@ -311,7 +315,7 @@ if __name__ == '__main__':
 							trainLabel = trainLabel,
 							testData = testData,
 							testLabel = testLabel)
-
+	"""
 	from fixUpDataSets import DataPrep
 	workerClass2 = DataPrep(name = "DP_Testing", logging = "both")
 	fileNames = workerClass2.makeTestTrainFiles(	fileNames = ['dataSetOriginal/articles2.csv', 'dataSetOriginal/articles1.csv'],
@@ -325,3 +329,33 @@ if __name__ == '__main__':
 												tabbedFile = True)
 	trainData, trainLabel = workerClass.loadData(   fileName = fileNames[1],
 													tabbedFile = True)
+	workerClass.log.info("Running Linear Regression Algorithm")
+	workerClass.trainModel( algo = 'linear',
+							trainData = trainData,
+							trainLabel = trainLabel,
+							testData = testData,
+							testLabel = testLabel)
+	workerClass.log.info("Running SVM Algorithm")
+	workerClass.trainModel( algo = 'svm',
+							trainData = trainData,
+							trainLabel = trainLabel,
+							testData = testData,
+							testLabel = testLabel)
+	workerClass.log.info("Running MLP Algorithm")
+	workerClass.trainModel( algo = 'mlp',
+							trainData = trainData,
+							trainLabel = trainLabel,
+							testData = testData,
+							testLabel = testLabel)
+	workerClass.log.info("Running Decision Tree Algorithm")
+	workerClass.trainModel( algo = 'tree',
+							trainData = trainData,
+							trainLabel = trainLabel,
+							testData = testData,
+							testLabel = testLabel)
+	workerClass.log.info("Running KNN Neighbors Algorithm")
+	workerClass.trainModel( algo = 'knn',
+							trainData = trainData,
+							trainLabel = trainLabel,
+							testData = testData,
+							testLabel = testLabel)

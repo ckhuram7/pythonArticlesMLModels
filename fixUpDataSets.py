@@ -11,6 +11,7 @@ import os
 import numpy
 import logging
 import datetime
+import codecs
 
 class DataPrep:
 	"""
@@ -128,14 +129,14 @@ class DataPrep:
 		else:
 			# I will be adding Timestamp to FileName Provided to allow for Multiple Files to exist
 			# And no file to be overwritten
-			fileToOpen = (	self.base + "/" + fileName + 
-							datetime.datetime.today().strftime("%Y_%m_%d_%H_%M_%S") )
-		with open(fileToOpen, 'w') as outputFile:
+			fileToOpen = (	 fileName + datetime.datetime.today().strftime("%Y_%m_%d_%H_%M_%S") )
+		with codecs.open(self.base + "/" + fileToOpen, 'w', encoding='utf-8', errors='ignore') as outputFile:
 			for dataArray in dataArrays:
 				try:
 					outputFile.write('\t'.join('"{}"'.format(tabbedData.strip().replace('\t', '')) for tabbedData in dataArray) + "\n" )
 				except Exception as error:
 					self.log.error("Could not write line to file: {}".format(str(dataArray)))
+		return fileToOpen
 
 	def splitRecords(self, numToBalance, numOfBots):
 		"""
@@ -177,6 +178,7 @@ class DataPrep:
 		@param	outputFileNames (list)	This will include the outputFileNames 
 		@param	returnDFs	(bool)	If this is True than it will return the dataFrames instead of fileNames
 		@param	returnTabbed	(bool)	If this is True than it will return tabbed files instead of csv files
+		@param  removeStopwords (bool)  If true will remove all stop words from articles
 		"""
 		# Local Function Variables
 		listOfDataFrames = []
@@ -266,7 +268,8 @@ class DataPrep:
 																					 							featureCounts[1][iterObj]))
 				# Now we will Split the records as evenly as possible
 				for iterObj, sampleDF in enumerate(listOfSampleDFs):
-					sliceInt = int(sampleDF.shape[0] / 2)
+					sliceInt = int(sampleDF.shape[0] / 4) * 3
+					#sliceIntSecond = sliceInt / 2 
 					listOfTestDFs.append(sampleDF[:sliceInt])
 					listOfTrainDFs.append(sampleDF[sliceInt:])
 					self.log.info("Train Sub DF shape {}, Split on {} == {}, Out Of {} possible records".format(str(listOfTrainDFs[iterObj].shape), 
@@ -286,10 +289,10 @@ class DataPrep:
 					testDF.to_csv( 	outputFileNames[1],	index = False)
 					trainDF.to_csv(	outputFileNames[0],	index = False)
 				elif returnTabbed == True:
-					self.createTabbedTextFileFromList(	fileName = "Train",
-														dataArrays = trainDF.values.tolist())
-					self.createTabbedTextFileFromList(	fileName = "Test",
-														dataArrays = testDF.values.tolist())
+					outputFileNames[0] = self.createTabbedTextFileFromList(	fileName = "Train",
+																			dataArrays = trainDF.values.tolist())
+					outputFileNames[1] = self.createTabbedTextFileFromList(	fileName = "Test",
+																			dataArrays = testDF.values.tolist())
 			else:
 				raise ValueError("Not enough different features to meet requirements: Requested {}, Available {}".format(numOfFeatures, len(featureCounts[0])))
 		else:
