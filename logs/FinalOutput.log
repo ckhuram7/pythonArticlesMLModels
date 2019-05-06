@@ -1,0 +1,11 @@
+2019-05-05 21:19:16,044, FinalOutput, INFO, Inital Run with files than have no more than 1000 records and have 5 unique features
+2019-05-05 21:19:16,194, FinalOutput, INFO, Running Linear Regression Algorithm
+2019-05-05 21:19:38,324, FinalOutput, INFO, Accuracy of the Model 0.7186192468619247
+2019-05-05 21:19:38,334, FinalOutput, INFO, Running SVM Algorithm
+2019-05-05 21:20:21,394, FinalOutput, INFO, Accuracy of the Model 0.5366108786610879
+2019-05-05 21:20:21,416, FinalOutput, INFO, Running MLP Algorithm
+2019-05-05 21:22:16,419, FinalOutput, INFO, Accuracy of the Model 0.6809623430962343
+2019-05-05 21:22:16,481, FinalOutput, INFO, Running Decision Tree Algorithm
+2019-05-05 21:22:28,695, FinalOutput, INFO, Accuracy of the Model 0.5889121338912134
+2019-05-05 21:22:28,714, FinalOutput, INFO, Running KNN Neighbors Algorithm
+2019-05-05 21:22:39,156, FinalOutput, INFO, Accuracy of the Model 0.49476987447698745

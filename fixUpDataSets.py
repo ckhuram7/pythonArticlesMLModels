@@ -113,6 +113,30 @@ class DataPrep:
 		except Exception as error:
 			self.log.error("Could not parse file: {}".format(error))
 
+	def createTabbedTextFileFromList(self, dataArrays, fileName):
+		"""
+		This takes the downloaded and formatted data and create an tabbed file
+
+		@param	dataArrays	(list)	List of Lists of data that will be added to array\
+			EX: [ ["Data 1", "Data 2", "Data3"],  ["Data 1", "Data 2", "Data3"]]
+		@param	fileName	(str)	Name of the csv file we will write to
+		"""
+		# This checks to see the filename has already not be created
+		if not os.path.isfile(self.base + "/" + fileName ):
+			fileToOpen = self.base + "/" + fileName 
+		# This will execute if filename already exists
+		else:
+			# I will be adding Timestamp to FileName Provided to allow for Multiple Files to exist
+			# And no file to be overwritten
+			fileToOpen = (	self.base + "/" + fileName + 
+							datetime.datetime.today().strftime("%Y_%m_%d_%H_%M_%S") )
+		with open(fileToOpen, 'w') as outputFile:
+			for dataArray in dataArrays:
+				try:
+					outputFile.write('\t'.join('"{}"'.format(tabbedData.strip().replace('\t', '')) for tabbedData in dataArray) + "\n" )
+				except Exception as error:
+					self.log.error("Could not write line to file: {}".format(str(dataArray)))
+
 	def splitRecords(self, numToBalance, numOfBots):
 		"""
 		This function will trying to split the records to process as evenly as possible based of the number of bots provided 
@@ -152,6 +176,7 @@ class DataPrep:
 		@param  numOfRecPerFile (int)   THe number of rows that each file created will have
 		@param	outputFileNames (list)	This will include the outputFileNames 
 		@param	returnDFs	(bool)	If this is True than it will return the dataFrames instead of fileNames
+		@param	returnTabbed	(bool)	If this is True than it will return tabbed files instead of csv files
 		"""
 		# Local Function Variables
 		listOfDataFrames = []
@@ -160,8 +185,9 @@ class DataPrep:
 		featureCol = ''
 		numOfRecPerFile = 1000
 		outputFileNames = [	"Train_" + datetime.datetime.today().strftime("%Y_%m_%d_%H_%M_%S") + ".csv",
-							"Test_" + datetime.datetime.today().strftime("%Y_%m_%d_%H_%M_%S") + ".csv" ]
+							"Test_"  + datetime.datetime.today().strftime("%Y_%m_%d_%H_%M_%S") + ".csv"]
 		returnDF = False
+		returnTabbed = False
 		# Reading in the arguments provided by the function
 		for key in kwargs:
 			# This will look at different Given Arguments Passed by a Class and process them accordingly
@@ -179,6 +205,8 @@ class DataPrep:
 				outputFileNames  = kwargs[key]
 			elif str(key).lower() == 'returndf':
 				returnDF  = kwargs[key]
+			elif str(key).lower() == 'returntabbed':
+				returnTabbed  = kwargs[key]
 
 		self.log.info("Starting to Read file to create Test and Train Data Files formatting them as needed")
 		self.log.info("Received the following fileNames for the raw files to create test and train data from: {}".format(fileNames))
@@ -254,8 +282,14 @@ class DataPrep:
 				trainDF = pandas.concat(listOfTrainDFs)
 
 				# Outputting Files to CSV
-				testDF.to_csv( 	outputFileNames[1],	index = False)
-				trainDF.to_csv(	outputFileNames[0],	index = False)
+				if returnDF == True:
+					testDF.to_csv( 	outputFileNames[1],	index = False)
+					trainDF.to_csv(	outputFileNames[0],	index = False)
+				elif returnTabbed == True:
+					self.createTabbedTextFileFromList(	fileName = "Train",
+														dataArrays = trainDF.values.tolist())
+					self.createTabbedTextFileFromList(	fileName = "Test",
+														dataArrays = testDF.values.tolist())
 			else:
 				raise ValueError("Not enough different features to meet requirements: Requested {}, Available {}".format(numOfFeatures, len(featureCounts[0])))
 		else:
@@ -276,8 +310,9 @@ class DataPrep:
 if __name__ == '__main__':
 	workerClass = DataPrep(name = "DP_Testing", logging = "both")
 	workerClass.makeTestTrainFiles(	fileNames = ['dataSetOriginal/articles2.csv'],
-									columnNames = ['title', 'publication', 'author', 'content'],
+									columnNames = ['publication', 'content'],
 									numOfFeatures = 5,
 									numOfRecPerFile = 1000,
-									featureCol = 'publication')
+									featureCol = 'publication',
+									returnTabbed = True)
 
